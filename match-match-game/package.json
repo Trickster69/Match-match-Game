@@ -1,14 +1,15 @@
 {
-  "name": "empty_project",
+  "name": "match-match_game",
   "version": "0.0.0",
-  "description": "Empty project template",
+  "description": "RS school 2021Q1",
   "private": true,
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env development",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prettier": "prettier src"
   },
-  "author": "Kris Casper",
+  "author": "Sergey Demchuk",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
@@ -21,6 +22,7 @@
     "eslint-webpack-plugin": "^2.5.4",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
+    "prettier": "2.3.0",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
     "ts-loader": "^9.1.1",
