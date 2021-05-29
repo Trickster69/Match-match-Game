@@ -1,0 +1,138 @@
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+}
+.overlay.visible {
+  display: flex;
+  animation: ovelay-grow 500ms forwards;
+}
+
+.victory-modal {
+  display: none;
+  font-family: 'Alice';
+  position: fixed;
+  color: #d3ad21;
+  background-color: rgba(0,0,0,0.7);
+  padding: 59px;
+  width: 530px;
+  z-index: 7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.victory-modal__text {
+  font-size: 25px;
+  text-align: center;
+}
+
+.victory-modal__score {
+  color: gold;
+  font-size: 35px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#score {
+  padding-left: 10px;
+}
+.victory-modal.visible {
+  display: block;
+  animation: ovelay-grow2 500ms forwards;
+}
+
+@keyframes ovelay-grow2 {
+  from {
+      background-color: rgba(0, 0, 0, alpha);
+  }
+  to {
+      background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.feedback__container {
+  background: gold;
+}
+
+.register-form__title {
+  text-align: center;
+  font-size: 36px;
+  line-height: 145%;
+  font-family: 'Adigiana2';
+  color: wheat;
+}
+
+.register-form__name {
+  margin-top: 20px;
+}
+
+.register-form__name-input {
+  font-size: 25px;
+  line-height: 145%;
+  margin: 0;
+  margin-bottom: 11px;
+  color: wheat;
+  font-family: 'Adigiana2';
+}
+
+input.register-form__input::placeholder{
+  font-size: 20px;
+  line-height: 135%;
+  color: #B5B5B5;
+}
+
+.register-form__input {
+  outline: none;
+  background-color: transparent;
+  height: 26px;
+  border: none;
+  width: 100%;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ea0909;
+  font-size: 26px;
+  color: wheat;
+  font-family: 'Adigiana2';
+}
+
+.register-form__email {
+  margin-top: 34px;
+}
+
+.register-form__buttons {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: space-around;
+
+}
+
+.form_btn {
+  font-size: 39px;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.form_btn:hover {
+  transform: scale(1.03);
+}
+
+.register-form__send-button {
+  font-family: 'Alice';
+  color: #a8afb6;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  line-height: 21px;
+  text-align: center;
+}
+
+.register-form__close-modal {
+  color: #d3ad21;
+}

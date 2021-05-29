@@ -6,8 +6,10 @@ import './style.css';
 import {SettingPage} from './pages/SettingPage/SettingPage';
 import { Header } from './pages/Header/Header';
 import { ScorePage } from './pages/ScorePage/ScorePage';
+import {VictoryModal} from './components/VictoryModal/VictoryModal';
 window.onload = () => {
   new Header();
   // new SettingPage();
-  new ScorePage().renderer();
+  // new ScorePage().renderer();
+  new VictoryModal('356');
 };
