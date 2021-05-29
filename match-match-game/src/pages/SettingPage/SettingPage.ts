@@ -1,7 +1,7 @@
 import './SettingPage.css'
 import {ClearFields} from '../../components/ClearFields'
 
-export class SettingPage {
+export class SettingPage extends ClearFields {
   settingContainer: HTMLDivElement | undefined;
   body: HTMLBodyElement | null = document.querySelector('body');
   headerBtn: HTMLDivElement | null = document.querySelector('.header__setting-btn');
@@ -10,7 +10,7 @@ export class SettingPage {
   // type: HTMLElement | null | undefined;
 
     constructor() {
-        // super();
+        super();
         this.renderer();
         this.setDifficulty();
 

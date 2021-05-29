@@ -1,0 +1,38 @@
+.lose-text {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  color: #fc4848;;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-family: 'Alice';
+  font-size: 90px;
+}
+
+/* .lose-text-small {
+  font-size: 1em;
+} */
+
+.lose-text.visible {
+  display: flex;
+  flex-direction: column;
+  animation: overlay-grow 500ms forwards;
+}
+
+
+@keyframes ovelay-grow3 {
+  from {
+      font-size: 0;
+      background-color: rgba(0, 0, 0, alpha);
+  }
+  to {
+      font-size: 25px;
+      background-color: rgba(0, 0, 0, 0.7);
+  }
+}

@@ -1,12 +1,12 @@
 import './AboutPage.css'
 import {ClearFields} from '../../components/ClearFields'
 
-export class AboutPage {
+export class AboutPage extends ClearFields{
   body: HTMLBodyElement | null = document.querySelector('body');
   abouContainer: HTMLDivElement | null = document.createElement('div');
   headerAbout: HTMLElement | null = document.querySelector('.header__about-btn');
   constructor() {
-
+      super();
   }
 
   renderer() {
