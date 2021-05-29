@@ -1,7 +1,7 @@
 export class ClearFields {
   body: HTMLBodyElement | null;
   game: HTMLElement | null = document.querySelector('.game-container');
-  about: HTMLElement | null = document.querySelector('.about-container');;
+  about: HTMLElement | null = document.querySelector('.about-container');
   score: HTMLElement | null = document.querySelector('.score-container');
   setting: HTMLElement | null = document.querySelector('.setting-field');
   victory: HTMLElement | null = document.querySelector('.victory-modal');
