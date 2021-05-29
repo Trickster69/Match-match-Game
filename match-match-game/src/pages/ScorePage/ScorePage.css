@@ -1,0 +1,60 @@
+
+.score-container {
+  width: 1000px;
+  height: 700px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 24%);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 30px 100px;
+}
+
+.best-score__title {
+  font-family: 'Alice';
+  font-size: 2em;
+  color: #d3ad21;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.best-score-item {
+  height: 40px;
+  max-width: 846px;
+  background: rgba(223, 221, 221, 0.5);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: wheat;
+  font-family: 'Adigiana2';
+  overflow: hidden;
+  padding: 0 5px 0 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.best-score-item__name {
+  column-gap: 5px;
+  display: flex;
+  font-size: 23px;
+}
+
+.best-score-item__email {
+  font-size: 18px;
+  text-align: left;
+}
+
+.best-score-item__score {
+  color: #d3ad21;
+  font-family: 'Azeroth';
+  font-size: 25px;
+  transform: translateY(20%);
+}
+
+#score_table {
+  padding-left: 5px;
+  color: wheat;
+}
