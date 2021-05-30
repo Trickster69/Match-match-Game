@@ -2,7 +2,9 @@ import './GameContainer.css';
 
 export class GameContainer {
   gameContainer: HTMLDivElement;
+
   body: HTMLBodyElement | null;
+
   constructor() {
     this.gameContainer = document.createElement('div');
 

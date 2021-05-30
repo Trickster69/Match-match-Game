@@ -1,7 +1,7 @@
 import './GameOverModal.css';
 
 export class GameOverModal {
-  looseModal: HTMLDivElement;
+  looseModal: HTMLElement;
 
   body: HTMLBodyElement | null;
 
@@ -21,9 +21,8 @@ export class GameOverModal {
   }
 
   closeModal() {
-    this.looseModal.addEventListener(
-      'click',
-      () => (this.looseModal.style.display = 'none')
-    );
+    this.looseModal.addEventListener('click', () => {
+      this.looseModal.style.display = 'none';
+    });
   }
 }

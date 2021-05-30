@@ -73,7 +73,7 @@ export class MainPage extends ClearFields {
     this.cat = '';
     this.images = '';
     this.dif = '';
-    if (category == 'Nature') {
+    if (category === 'Nature') {
       this.cat = obj[0].category;
       this.images = obj[0].images;
     } else if (category === 'Supernatural') {
@@ -88,8 +88,9 @@ export class MainPage extends ClearFields {
     } else if (difficult === '6x6') {
       this.dif = '18';
     }
-    /*Добавили карты на страницу через класс */
-    const imagesForRender = this.images.slice(0, parseInt(this.dif));
+    //  Добавили карты на страницу через класс
+
+    const imagesForRender = this.images.slice(0, parseInt(this.dif, 10));
     const finImages = imagesForRender.concat(imagesForRender);
 
     for (let i = 0; i < finImages.length; i++) {
@@ -117,13 +118,12 @@ export class MainPage extends ClearFields {
       this.AudioController.clickButton();
       if (!this.Newgame) throw Error('check game in MainPage');
       this.Newgame.stopGame();
-      new MainPage();
+      const mainPage = new MainPage();
     });
 
     this.headerBtns = document.querySelectorAll('.btn_setting');
     if (!this.headerBtns) throw Error('Check headerBtns in MainPage');
-    this.headerBtns.forEach((btn) =>
-      btn.addEventListener('click', () => {
+    this.headerBtns.forEach((btn) => btn.addEventListener('click', () => {
         if (!this.pauseBtn) throw Error('Check pauseBtn in MainPage');
         this.pauseBtn.setAttribute('disabled', 'disabled');
         this.pauseBtn.textContent = 'pause';
@@ -131,27 +131,25 @@ export class MainPage extends ClearFields {
 
         this.AudioController.clickButton();
         if (btn.classList.contains('header__about-btn')) {
-          new AboutPage().renderer();
+          const aboutPage = new AboutPage().renderer();
         } else if (btn.classList.contains('header__score-btn')) {
-          new ScorePage().renderer();
+          const scorePage = new ScorePage().renderer();
         } else if (btn.classList.contains('header__setting-btn')) {
-          new SettingPage();
+          const settingPage = new SettingPage();
         }
-      }),
-    );
+    }));
   }
 
   ready() {
     this.cards = [...document.getElementsByClassName('card')];
-    if (this.cards.length == 16) {
+    if (this.cards.length === 16) {
       this.Newgame = new Game(100, this.cards) as Game;
     } else {
       this.Newgame = new Game(200, this.cards) as Game;
     }
 
     (
-      document.querySelector('.game-info__start-game') as HTMLElement
-    ).addEventListener('click', () => {
+    document.querySelector('.game-info__start-game') as HTMLElement).addEventListener('click', () => {
       if (!this.Newgame) throw Error('check game in MainPage');
       this.Newgame.startGame();
     });
@@ -162,8 +160,6 @@ export class MainPage extends ClearFields {
       });
     });
 
-    this.cards.forEach((card: HTMLElement) =>
-      card.addEventListener('click', () => this.Newgame.flipCard(card)),
-    );
+    this.cards.forEach((card: HTMLElement) => card.addEventListener('click', () => this.Newgame.flipCard(card)));
   }
 }

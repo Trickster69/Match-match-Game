@@ -230,10 +230,7 @@ export class Game {
     }, 1000);
   }
 
-  getCardType = (card: HTMLElement) => {
-    return (card.querySelector('.card__front') as HTMLElement).style
-      .backgroundImage;
-  }
+  getCardType = (card: HTMLElement) => (card.querySelector('.card__front') as HTMLElement).style.backgroundImage;
 
   startCountDown() {
     clearInterval(this.countDown);
@@ -298,11 +295,9 @@ export class Game {
     );
   }
 
-  getScore = () => {
+  getScore = () => 5400;
     // if(!this.MatchCount) throw Error('check MatchCount in Game')
     // if(!this.MistakeCount) throw Error('check MistakeCount in Game')
     // if(!this.timer) throw Error('check timer in Game')
     //   //toDo make formula
-    return 5400;
-  };
 }

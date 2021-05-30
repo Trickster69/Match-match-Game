@@ -37,10 +37,13 @@ export class ScorePage extends ClearFields {
         }
 
         for (let i = 0; i < scoreCount; i++) {
-          const score = getScores.result[i].score;
-          const name = getScores.result[i].name;
-          const surname = getScores.result[i].surname;
-          const email = getScores.result[i].email;
+          const {
+            score, name, surname, email,
+           } = getScores.result[i];
+          // const score = getScores.result[i].score;
+          // const name = getScores.result[i].name;
+          // const surname = getScores.result[i].surname;
+          // const email = getScores.result[i].email;
           console.log(score, name, surname, email);
 
           const scoreItem = document.createElement('div');
@@ -68,7 +71,7 @@ export class ScorePage extends ClearFields {
         db.createObjectStore('score', { autoIncrement: true });
       }
     };
-  }
+  };
 
   renderer() {
     this.scoreContainer = document.createElement('div');

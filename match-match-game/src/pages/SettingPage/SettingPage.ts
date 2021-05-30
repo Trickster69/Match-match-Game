@@ -59,7 +59,7 @@ export class SettingPage extends ClearFields {
     // this.headerBtn.classList.add('active');
   }
 
-  setDifficulty() {
+  setDifficulty = () => {
     const type = document.querySelector('#type');
     if (!type) throw Error('App element not found');
 
@@ -74,5 +74,5 @@ export class SettingPage extends ClearFields {
     difficult.addEventListener('change', (e: any) => {
       localStorage.setItem('difficulty', e.target.value);
     });
-  }
+  };
 }

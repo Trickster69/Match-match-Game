@@ -2,19 +2,27 @@ import './VictoryModal.css';
 import { ScorePage } from '../../pages/ScorePage/ScorePage';
 import { AudioController } from '../AudioConterller';
 
-/*Наша модалка, и валидация внутрии нее. */
 export class VictoryModal {
   score: string | number;
+
   overlay: HTMLDivElement;
+
   element: HTMLDivElement;
+
   cancelBtn: HTMLElement;
+
   formFeedback: HTMLElement;
+
   // firstNameInput: HTMLInputElement| null;
   // LastNameInput: HTMLInputElement | null;
   emailInput: HTMLInputElement | null;
+
   modalFields: HTMLCollectionOf<Element>;
+
   sendModalButton: HTMLElement;
+
   CloseBtn: HTMLElement;
+
   constructor(score: string | number) {
     this.score = score;
     this.overlay = document.createElement('div');
@@ -45,7 +53,7 @@ export class VictoryModal {
                 <div class="register-form__email">
                     <p class="register-form__name-input">Your e-mail:</p>
                     <input name="email" id="input" type = "email" placeholder
-                    ="example@gmail.com" class="register-form__input" type="text" required >
+                    ="example@gmail.com" class="register-form__input email_input" type="text" required >
                 </div>
 
                 <div class="register-form__buttons">
@@ -69,18 +77,10 @@ export class VictoryModal {
     // this.firstNameInput = document.querySelector('.first_name').querySelector('input');
 
     // this.LastNameInput = document.querySelector('.last_name').querySelector('input'),
-    (this.emailInput = (
-      document.querySelector('.register-form__email') as HTMLElement
-    ).querySelector('input')),
-      (this.modalFields = document.getElementsByClassName(
-        'register-form__input',
-      )),
-      (this.sendModalButton = document.querySelector(
-        '.register-form__send-button',
-      ) as HTMLElement),
-      (this.CloseBtn = document.querySelector(
-        '.register-form__close-modal',
-      ) as HTMLElement);
+    this.emailInput = (document.querySelector('.email_input'));
+    this.modalFields = document.getElementsByClassName('register-form__input');
+    this.sendModalButton = (document.querySelector('.register-form__send-button') as HTMLElement);
+    this.CloseBtn = (document.querySelector('.register-form__close-modal') as HTMLElement);
 
     this.showModal();
     this.closeModal();
@@ -98,17 +98,7 @@ export class VictoryModal {
     this.indexedBd();
   }
 
-  closeModal() {
-    // (document.querySelector('body') as HTMLElement).addEventListener('click', (e)=>{
-
-    //     if((e.target.classList.contains('register-form__close-modal') || (e.target.classList.contains('overlay')))){
-    //         document.querySelector('.overlay ').classList.remove('visible');
-    //         document.querySelector('.victory-modal').classList.remove('visible');
-    //         document.querySelector('body').classList.remove('victory');
-
-    //     }
-    // });
-
+  closeModal = () => {
     (
       document.querySelector('.register-form__close-modal') as HTMLElement
     ).addEventListener('click', () => {
@@ -137,9 +127,9 @@ export class VictoryModal {
         );
       },
     );
-  }
+  };
 
-  showModal() {
+  showModal = () => {
     (document.querySelector('.overlay') as HTMLElement).classList.add(
       'visible',
     );
@@ -147,23 +137,20 @@ export class VictoryModal {
       'visible',
     );
     (document.querySelector('body') as HTMLElement).classList.add('victory');
-  }
+  };
 
-  checkInputValue(element: HTMLInputElement | null) {
+  checkInputValue = (element: HTMLInputElement | null) => {
     const patternSymb = new RegExp(/[~!@#$%*()_—+=|:;"'`<>,.?/^]/);
     const regNumsOnly = new RegExp('^\\d+$');
-    const emaliPattern = new RegExp(
-      /(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*:(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)(?:,\s*(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*))*)?;\s*)/,
-    );
 
     if (!element) throw Error('check Argument in checkInputValue VicoryModel');
     element.addEventListener('keyup', () => {
       if (
-        !patternSymb.test(element.value) &&
-        !regNumsOnly.test(element.value) &&
-        element.value.length > 0 &&
-        element.value.length < 30 &&
-        element.value.trim().length > 0
+        !patternSymb.test(element.value)
+        && !regNumsOnly.test(element.value)
+        && element.value.length > 0
+        && element.value.length < 30
+        && element.value.trim().length > 0
       ) {
         this.validInput(element);
       } else {
@@ -171,27 +158,21 @@ export class VictoryModal {
       }
     });
 
-    if (!this.emailInput)
-      throw Error('check emailInput in checkInputValue VicoryModel class');
+    if (!this.emailInput) throw Error('check emailInput in checkInputValue VicoryModel class');
     this.emailInput.addEventListener('keyup', () => {
-      if (!this.emailInput)
-        throw Error('check emailInput in checkInputValue VicoryModel class');
-      if (
-        emaliPattern.test(this.emailInput.value) &&
-        element.value.length > 0 &&
-        element.value.length < 30
-      ) {
+      if (!this.emailInput) throw Error('check emailInput in checkInputValue VicoryModel class');
+      if (this.emailInput.validity.valid && element.value.length > 0 && element.value.length < 30) {
         this.validInput(this.emailInput);
       } else {
         this.noValidInput(this.emailInput);
       }
     });
-  }
+  };
 
-  validInput(element: HTMLElement) {
+  validInput = (element: HTMLElement) => {
     element.style.borderBottom = '2px solid #16ea09';
     element.classList.add('valid');
-  }
+  };
 
   activeSendBtn() {
     this.sendModalButton.removeAttribute('disabled');
@@ -203,10 +184,10 @@ export class VictoryModal {
     this.sendModalButton.style.color = '#a8afb6';
   }
 
-  noValidInput(element: HTMLElement) {
+  noValidInput = (element: HTMLElement) => {
     element.style.borderBottom = '2px solid #ea0909';
     element.classList.remove('valid');
-  }
+  };
 
   activeButton() {
     for (let i = 0; i < this.modalFields.length; i++) {
@@ -222,15 +203,13 @@ export class VictoryModal {
     }
   }
 
-  indexedBd() {
+  indexedBd = () => {
     if (!('indexedDB' in window)) {
       console.warn('IndexedDB not supported');
-      return;
     } else {
-      let request = indexedDB.open('Trickster69');
-
+      const request = indexedDB.open('Trickster69');
       request.onupgradeneeded = function () {
-        let db = request.result;
+        const db = request.result;
         if (!db.objectStoreNames.contains('books')) {
           db.createObjectStore('score', { autoIncrement: true });
         }
@@ -241,44 +220,43 @@ export class VictoryModal {
       };
 
       request.onsuccess = function () {
-        let db = request.result;
+        const db = request.result;
 
         (document.querySelector('form') as HTMLElement).addEventListener(
           'submit',
           (e) => {
             e.preventDefault();
-            let name = (
+            const name = (
               document.querySelectorAll(
                 '.register-form__input',
               )[0] as HTMLInputElement
             ).value;
-            let surname = (
+            const surname = (
               document.querySelectorAll(
                 '.register-form__input',
               )[1] as HTMLInputElement
             ).value;
-            let email = (
+            const email = (
               document.querySelectorAll(
                 '.register-form__input',
               )[2] as HTMLInputElement
             ).value;
-            let score = (document.querySelector('#score') as HTMLElement)
+            const score = (document.querySelector('#score') as HTMLElement)
               .textContent;
             console.log(name, surname, email, score);
 
-            let transaction = db.transaction('score', 'readwrite');
-            let myData = transaction.objectStore('score');
-            let result = {
-              score: score,
-              name: name,
-              surname: surname,
-              email: email,
+            const transaction = db.transaction('score', 'readwrite');
+            const myData = transaction.objectStore('score');
+            const result = {
+              score,
+              name,
+              surname,
+              email,
             };
 
-            let addScore = myData.put(result);
+            const addScore = myData.put(result);
             console.log(myData.getAll());
             addScore.onsuccess = function () {
-              // (4)
               console.log('Результаа записан в базу', addScore.result);
             };
 
@@ -288,7 +266,5 @@ export class VictoryModal {
         );
       };
     }
-  }
+  };
 }
-
-/*\\\Наша модалка, и валидация внутрии нее. */
