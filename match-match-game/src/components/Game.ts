@@ -33,7 +33,7 @@ export class Game {
 
   MatchCount!: number;
 
-  MistakeCount: number | undefined;
+  MistakeCount!: number;
 
   myGreeting: NodeJS.Timeout | undefined;
 
@@ -158,7 +158,6 @@ export class Game {
   flipCard(card: HTMLElement) {
     if (this.canFlipCard(card)) {
       this.audioController.flip();
-      // if(!this.totalClicks) throw Error('check totalClicks in Game')
       if (!this.ticker) throw Error('check ticker in Game');
       this.totalClicks++;
       this.ticker.innerHTML = `${this.totalClicks}`;
@@ -203,9 +202,7 @@ export class Game {
   }
 
   cardMisMatch(card1: HTMLElement, card2: HTMLElement) {
-    // if(!this.MistakeCount) throw Error('check MistakeCount in Game')
-    // this.MistakeCount ++;
-    // console.log('MistakeCount: ' + this.MistakeCount);
+    this.MistakeCount++;
     this.busy = true;
     (card1.querySelector('.card__front') as HTMLElement).classList.add(
       'no_matched',
@@ -295,9 +292,11 @@ export class Game {
     );
   }
 
-  getScore = () => 5400;
-    // if(!this.MatchCount) throw Error('check MatchCount in Game')
-    // if(!this.MistakeCount) throw Error('check MistakeCount in Game')
-    // if(!this.timer) throw Error('check timer in Game')
-    //   //toDo make formula
+  getScore = () => {
+    const score = (this.MatchCount - this.MistakeCount) * 100 - (100 - this.timeRemaining);
+    if (score < 0) {
+      return 0;
+    }
+    return score;
+  };
 }

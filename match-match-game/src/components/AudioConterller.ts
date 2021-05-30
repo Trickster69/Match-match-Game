@@ -20,7 +20,6 @@ export class AudioController {
     this.buttonClick = new Audio('./Audio/btn.mp3');
     this.bgMusic.volume = 0.4;
     this.gameOverSound.volume = 0.1;
-    this.bgMusic.loop = true;
   }
 
   clickButton() {
@@ -29,6 +28,7 @@ export class AudioController {
 
   startMusic() {
     this.bgMusic.play();
+    this.bgMusic.loop = true;
   }
 
   gameOver() {
