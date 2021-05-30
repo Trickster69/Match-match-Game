@@ -29,28 +29,26 @@ export class MainPage extends ClearFields {
 
   logo!: HTMLElement | null;
 
-  cards!: any;
-
   headerBtns: NodeListOf<Element> | undefined;
 
   body!: HTMLBodyElement | null;
 
   Newgame!: Game;
 
+  cards!: HTMLElement[];
+
   constructor() {
     super();
     const gameContainer = new GameContainer();
     this.checkNewHeader();
     const header = new Header();
-    this.routing();
-
     this.AudioController = new AudioController();
-
     this.btnGame = document.getElementById('stop_btn');
     this.category = localStorage.getItem('category') || 'Nature';
     this.difficult = localStorage.getItem('difficulty') || '4x4';
     this.pauseBtn = document.getElementById('stop_btn');
     this.addCards(this.category, this.difficult).then(() => {
+      this.routing();
       this.ready();
     });
   }
@@ -108,11 +106,6 @@ export class MainPage extends ClearFields {
           allCards[b].style.height = '105px';
           allCards[b].style.width = '87.5px';
         }
-
-        //  [...document.getElementsByClassName('.card')].forEach(card => {
-        //       card.style.height = '105px';
-        //       card.style.width = '87.5px';
-        //   });
       }
     }
   }
@@ -122,7 +115,6 @@ export class MainPage extends ClearFields {
     if (!this.logo) throw Error('Check logo in MainPage');
     this.logo.addEventListener('click', () => {
       this.AudioController.clickButton();
-      // if (!this.Newgame) throw Error('check game in MainPage');
       this.Newgame.stopGame();
       const mainPage = new MainPage();
     });
@@ -134,8 +126,7 @@ export class MainPage extends ClearFields {
         this.pauseBtn.setAttribute('disabled', 'disabled');
         this.pauseBtn.textContent = 'pause';
         this.pauseBtn.style.color = '#5f5d56';
-        this.Newgame.stopGame();
-        console.log("soooooop" + this.Newgame.stopGame());
+
         this.AudioController.clickButton();
         if (btn.classList.contains('header__about-btn')) {
           const aboutPage = new AboutPage().renderer();
@@ -148,7 +139,8 @@ export class MainPage extends ClearFields {
   }
 
   ready() {
-    this.cards = [...document.getElementsByClassName('card')];
+    this.cards = Array.from(document.getElementsByClassName('card') as HTMLCollectionOf<HTMLElement>);
+    // this.cards = [...document.getElementsByClassName('card')];
     if (this.cards.length === 16) {
       this.Newgame = new Game(100, this.cards) as Game;
     } else {
