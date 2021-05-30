@@ -103,6 +103,12 @@ export class MainPage extends ClearFields {
           document.querySelector('.game-container') as HTMLElement
         ).style.gridTemplateColumns = 'repeat(6,auto)';
 
+        const allCards = Array.from(document.getElementsByClassName('card') as HTMLCollectionOf<HTMLElement>);
+        for (let b = 0; b < allCards.length; b++) {
+          allCards[b].style.height = '105px';
+          allCards[b].style.width = '87.5px';
+        }
+
         //  [...document.getElementsByClassName('.card')].forEach(card => {
         //       card.style.height = '105px';
         //       card.style.width = '87.5px';
@@ -116,7 +122,7 @@ export class MainPage extends ClearFields {
     if (!this.logo) throw Error('Check logo in MainPage');
     this.logo.addEventListener('click', () => {
       this.AudioController.clickButton();
-      if (!this.Newgame) throw Error('check game in MainPage');
+      // if (!this.Newgame) throw Error('check game in MainPage');
       this.Newgame.stopGame();
       const mainPage = new MainPage();
     });
@@ -128,7 +134,8 @@ export class MainPage extends ClearFields {
         this.pauseBtn.setAttribute('disabled', 'disabled');
         this.pauseBtn.textContent = 'pause';
         this.pauseBtn.style.color = '#5f5d56';
-
+        this.Newgame.stopGame();
+        console.log("soooooop" + this.Newgame.stopGame());
         this.AudioController.clickButton();
         if (btn.classList.contains('header__about-btn')) {
           const aboutPage = new AboutPage().renderer();
