@@ -1,5 +1,6 @@
 import './SettingPage.css';
 import { ClearFields } from '../../components/ClearFields';
+import { AudioController } from '../../components/AudioConterller';
 
 export class SettingPage extends ClearFields {
   settingContainer: HTMLDivElement | undefined;
@@ -18,6 +19,7 @@ export class SettingPage extends ClearFields {
     super();
     this.renderer();
     this.setDifficulty();
+    this.clickAudio();
   }
 
   renderer() {
@@ -44,8 +46,6 @@ export class SettingPage extends ClearFields {
       `;
     if (!this.body) throw Error('App element not found');
     this.body.appendChild(this.settingContainer);
-    // if(!this.headerBtn) throw Error('App element not found');
-    // this.headerBtn.classList.add('active');
   }
 
   setDifficulty() {
@@ -86,5 +86,10 @@ export class SettingPage extends ClearFields {
         btn.classList.remove('active');
         (document.getElementById(`${selectBtn}`) as HTMLElement).classList.add('active');
     });
+  };
+
+  clickAudio = () => {
+    const allSettingBtns = Array.from(document.getElementsByClassName('cardsType') as HTMLCollectionOf<HTMLElement>);
+    allSettingBtns.forEach((btn) => btn.addEventListener('click', () => new AudioController().clickButton()));
   };
 }
