@@ -17,7 +17,7 @@
   font-family: 'Alice';
   position: fixed;
   color: #d3ad21;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 59px;
   width: 530px;
   z-index: 7;
@@ -49,10 +49,10 @@
 
 @keyframes ovelay-grow2 {
   from {
-      background-color: rgba(0, 0, 0, alpha);
+    background-color: rgba(0, 0, 0, alpha);
   }
   to {
-      background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -81,10 +81,10 @@
   font-family: 'Adigiana2';
 }
 
-input.register-form__input::placeholder{
+input.register-form__input::placeholder {
   font-size: 20px;
   line-height: 135%;
-  color: #B5B5B5;
+  color: #b5b5b5;
 }
 
 .register-form__input {
@@ -109,7 +109,6 @@ input.register-form__input::placeholder{
   margin-top: 30px;
   width: 100%;
   justify-content: space-around;
-
 }
 
 .form_btn {

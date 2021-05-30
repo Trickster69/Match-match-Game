@@ -2,7 +2,7 @@
   position: relative;
   padding-top: 30px;
   display: grid;
-  grid-template-columns: repeat(4,auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
   margin: 50px;
   justify-content: center;
@@ -58,11 +58,11 @@
 
 @media (max-width: 600px) {
   .game-container {
-      grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
   }
 
   .game-container__info {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -1,27 +1,30 @@
-import './SettingPage.css'
-import {ClearFields} from '../../components/ClearFields'
+import './SettingPage.css';
+import { ClearFields } from '../../components/ClearFields';
 
 export class SettingPage extends ClearFields {
   settingContainer: HTMLDivElement | undefined;
+
   body: HTMLBodyElement | null = document.querySelector('body');
-  headerBtn: HTMLDivElement | null = document.querySelector('.header__setting-btn');
-  e:  MouseEvent | null | undefined;
+
+  headerBtn: HTMLDivElement | null = document.querySelector(
+    '.header__setting-btn',
+  );
+
+  e: MouseEvent | null | undefined;
   // difficult: HTMLElement | null ;
   // type: HTMLElement | null | undefined;
 
-    constructor() {
-        super();
-        this.renderer();
-        this.setDifficulty();
+  constructor() {
+    super();
+    this.renderer();
+    this.setDifficulty();
+  }
 
-    }
-
-    renderer() {
-
-      this.settingContainer = document.createElement('div');
-      if(!this.settingContainer)  throw Error('App element not found');
-      this.settingContainer.classList.add('setting-field');
-      this.settingContainer.innerHTML = `
+  renderer() {
+    this.settingContainer = document.createElement('div');
+    if (!this.settingContainer) throw Error('App element not found');
+    this.settingContainer.classList.add('setting-field');
+    this.settingContainer.innerHTML = `
       <div class="setting-field__title">Game Settings:</div>
 
       <div class="settings">
@@ -50,31 +53,26 @@ export class SettingPage extends ClearFields {
           </div>
       </div>
       `;
-      if(!this.body) throw Error('App element not found');
-      this.body.appendChild(this.settingContainer);
+    if (!this.body) throw Error('App element not found');
+    this.body.appendChild(this.settingContainer);
+    // if(!this.headerBtn) throw Error('App element not found');
+    // this.headerBtn.classList.add('active');
+  }
 
-      // if(!this.headerBtn) throw Error('App element not found');
-      // this.headerBtn.classList.add('active');
+  setDifficulty() {
+    const type = document.querySelector('#type');
+    if (!type) throw Error('App element not found');
 
+    type.addEventListener('change', (e: any) => {
+      localStorage.setItem('category', e.target.value);
+      console.log(e.target.value);
+    });
 
-    }
+    const difficult = document.getElementById('difficult');
+    if (!difficult) throw Error('App element not found');
 
-     setDifficulty() {
-      const type = document.querySelector('#type');
-      if(!type) throw Error('App element not found');
-
-        type.addEventListener('change', (e: any)=> {
-
-            localStorage.setItem('category', e.target.value);
-            console.log(e.target.value);
-
-        });
-
-        const difficult = document.getElementById('difficult');
-        if(!difficult) throw Error('App element not found');
-
-        difficult.addEventListener('change', function(e:any) {
-          localStorage.setItem('difficulty', e.target.value);
-        });
-    }
+    difficult.addEventListener('change', (e: any) => {
+      localStorage.setItem('difficulty', e.target.value);
+    });
+  }
 }

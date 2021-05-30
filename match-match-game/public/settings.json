@@ -1,19 +1,76 @@
 [
-    {
-      "category": "Nature",
-      "difficulty": "4",
-      "images": ["001-acorn.png", "002-moon.png", "003-wood.png", "004-bee.png", "005-mushroom.png", "006-world.png", "007-tulip.png", "008-plant.png", "009-cactus.png", "010-cloud.png", "011-sun.png", "012-ladybug.png", "013-snow.png", "014-mountain.png", "015-rain.png", "016-fish.png", "017-tree.png", "018-volcano.png"]
-    },
+  {
+    "category": "Nature",
+    "difficulty": "4",
+    "images": [
+      "001-acorn.png",
+      "002-moon.png",
+      "003-wood.png",
+      "004-bee.png",
+      "005-mushroom.png",
+      "006-world.png",
+      "007-tulip.png",
+      "008-plant.png",
+      "009-cactus.png",
+      "010-cloud.png",
+      "011-sun.png",
+      "012-ladybug.png",
+      "013-snow.png",
+      "014-mountain.png",
+      "015-rain.png",
+      "016-fish.png",
+      "017-tree.png",
+      "018-volcano.png"
+    ]
+  },
 
-    {
-        "category": "Supernatural",
-        "difficulty": "4",
-        "images": ["005-pot.png", "013-devil.png", "015-dragon.png", "019-ufo.png","021-broom.png", "022-statue.png", "023-genie lamp.png", "024-ghost.png","030-zeus.png", "033-griffin.png", "037-sea monster.png", "040-potion.png","041-magic wand.png", "047-wizard.png", "050-pegasus.png", "056-time machine.png","059-unicorn.png", "066-wizard.png"]
-    },
+  {
+    "category": "Supernatural",
+    "difficulty": "4",
+    "images": [
+      "005-pot.png",
+      "013-devil.png",
+      "015-dragon.png",
+      "019-ufo.png",
+      "021-broom.png",
+      "022-statue.png",
+      "023-genie lamp.png",
+      "024-ghost.png",
+      "030-zeus.png",
+      "033-griffin.png",
+      "037-sea monster.png",
+      "040-potion.png",
+      "041-magic wand.png",
+      "047-wizard.png",
+      "050-pegasus.png",
+      "056-time machine.png",
+      "059-unicorn.png",
+      "066-wizard.png"
+    ]
+  },
 
-    {
-        "category": "Wild animals",
-        "difficulty": "4",
-        "images": ["001-panda.png", "002-lion.png", "003-tiger.png", "004-bear-1.png","005-parrot.png", "006-rabbit.png", "007-chameleon.png", "008-sloth.png","009-elk.png", "010-llama.png", "011-ant-eater.png", "012-eagle.png","013-crocodile.png", "014-beaver.png", "015-hedgehog.png", "016-walrus.png","017-bear.png", "018-ostrich.png"]
-    }   
-  ]
+  {
+    "category": "Wild animals",
+    "difficulty": "4",
+    "images": [
+      "001-panda.png",
+      "002-lion.png",
+      "003-tiger.png",
+      "004-bear-1.png",
+      "005-parrot.png",
+      "006-rabbit.png",
+      "007-chameleon.png",
+      "008-sloth.png",
+      "009-elk.png",
+      "010-llama.png",
+      "011-ant-eater.png",
+      "012-eagle.png",
+      "013-crocodile.png",
+      "014-beaver.png",
+      "015-hedgehog.png",
+      "016-walrus.png",
+      "017-bear.png",
+      "018-ostrich.png"
+    ]
+  }
+]

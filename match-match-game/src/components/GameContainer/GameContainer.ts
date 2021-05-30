@@ -1,11 +1,14 @@
-import './GameContainer.css'
+import './GameContainer.css';
+
 export class GameContainer {
   gameContainer: HTMLDivElement;
   body: HTMLBodyElement | null;
   constructor() {
-      this.gameContainer = document.createElement('div');
-      this.gameContainer.classList.add('game-container');
-      this.gameContainer.innerHTML = `
+    this.gameContainer = document.createElement('div');
+
+    this.gameContainer.classList.add('game-container');
+
+    this.gameContainer.innerHTML = `
           <div class="game-container__info">
               <div class="game-info">
                   Time <span id="time-remaining">0</span>
@@ -22,8 +25,8 @@ export class GameContainer {
               </div>
           </div>
       `;
-      this.body = document.querySelector('body');
-      if(!this.body) throw Error('No found body in GameOver Modal')
-      this.body.appendChild(this.gameContainer);
+    this.body = document.querySelector('body');
+    if (!this.body) throw Error('No found body in GameOver Modal');
+    this.body.appendChild(this.gameContainer);
   }
 }

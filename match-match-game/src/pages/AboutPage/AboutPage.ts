@@ -1,18 +1,18 @@
-import './AboutPage.css'
-import {ClearFields} from '../../components/ClearFields'
+import './AboutPage.css';
+import { ClearFields } from '../../components/ClearFields';
 
-export class AboutPage extends ClearFields{
+export class AboutPage extends ClearFields {
   body: HTMLBodyElement | null = document.querySelector('body');
+
   abouContainer: HTMLDivElement | null = document.createElement('div');
-  headerAbout: HTMLElement | null = document.querySelector('.header__about-btn');
-  constructor() {
-      super();
-  }
+
+  headerAbout: HTMLElement | null =
+    document.querySelector('.header__about-btn');
 
   renderer() {
-      if (!this.abouContainer) throw Error('App element not found');
-      this.abouContainer.classList.add('about-container');
-      this.abouContainer.innerHTML = `
+    if (!this.abouContainer) throw Error('App element not found');
+    this.abouContainer.classList.add('about-container');
+    this.abouContainer.innerHTML = `
       <div class="about-game">
           <div class="about-game__title">How to play?</div>
           <div class="about-game__rules">
@@ -25,14 +25,10 @@ export class AboutPage extends ClearFields{
       </div>
       `;
 
-      if (!this.body) throw Error('App element not found');
-      this.body.appendChild(this.abouContainer);
+    if (!this.body) throw Error('App element not found');
+    this.body.appendChild(this.abouContainer);
 
-
-      if (!this.headerAbout) throw Error('App element not found');
-      this.headerAbout.classList.add('active');
-
-
+    if (!this.headerAbout) throw Error('App element not found');
+    this.headerAbout.classList.add('active');
   }
 }
-

@@ -2,7 +2,9 @@ import './Header.css';
 
 export class Header {
   header: HTMLDivElement;
-  body: HTMLBodyElement|null;
+
+  body: HTMLBodyElement | null;
+
   constructor() {
     this.header = document.createElement('div');
     this.header.classList.add('header');
@@ -25,7 +27,7 @@ export class Header {
     `;
 
     this.body = document.querySelector('body');
-    if(!this.body) throw Error('No found body in GameOver Modal')
+    if (!this.body) throw Error('No found body in GameOver Modal');
     this.body.appendChild(this.header);
   }
 }

@@ -1,32 +1,31 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- @font-face {
-      font-family: Alice;
-      src: url('../public/fonts/Alice.ttf');
-  }
+@font-face {
+  font-family: Alice;
+  src: url('../public/fonts/Alice.ttf');
+}
 
-  @font-face {
-      font-family: Azeroth;
-      src: url('../public/fonts/Azeroth Cyrillic.ttf');
-  }
+@font-face {
+  font-family: Azeroth;
+  src: url('../public/fonts/Azeroth Cyrillic.ttf');
+}
 
-  @font-face {
-      font-family: Adigiana2;
-      src: url('../public/fonts/Adigiana_2.ttf');
-  }
+@font-face {
+  font-family: Adigiana2;
+  src: url('../public/fonts/Adigiana_2.ttf');
+}
 
 body {
-   background: radial-gradient(#444C5C, #ce5a57);
-   background-image: url('./assets/595.jpg');
-   background-size: cover;
-   background-repeat: no-repeat;
+  background: radial-gradient(#444c5c, #ce5a57);
+  background-image: url('./assets/595.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 html {
   min-height: 100vh;
   font-size: 20px;
 }
-

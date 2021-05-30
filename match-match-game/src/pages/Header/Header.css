@@ -20,28 +20,25 @@
   align-items: center;
 }
 
-  .header__logo {
-      font-family: 'Alice';
-      color: #d3ad21;
-      font-size: 19px;
-      -webkit-user-select: none;
-  }
+.header__logo {
+  font-family: 'Alice';
+  color: #d3ad21;
+  font-size: 19px;
+  -webkit-user-select: none;
+}
 
-  .header__logo:hover {
-      color: gold;
-      cursor: pointer;
-  }
+.header__logo:hover {
+  color: gold;
+  cursor: pointer;
+}
 
-  .header__line-1-logo {
-      text-align: center;
-  }
+.header__line-1-logo {
+  text-align: center;
+}
 
-  .header__line-2-logo {
-      text-align: center;
-  }
-
-
-
+.header__line-2-logo {
+  text-align: center;
+}
 
 .header_buttons {
   color: wheat;
@@ -57,7 +54,6 @@
   max-width: 500px;
 }
 
-
 .btn_setting {
   transition: 0.2s all;
 }
@@ -71,7 +67,7 @@
 }
 
 .header__stop-btn {
-    position: relative;
+  position: relative;
 }
 
 #stop_btn {
@@ -88,7 +84,7 @@
   margin-top: -15px;
 }
 
-#stop_btn:hover{
+#stop_btn:hover {
   color: gold;
   transform: scale(1.03);
 }
