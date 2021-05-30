@@ -57,3 +57,17 @@ select {
   color: wheat;
   font-size: 24px;
 }
+.cardsType {
+  font-family: 'Adigiana2';
+  font-size: 32px;
+  color: wheat;
+  text-align: center;
+  padding-bottom: 16px;
+}
+.cardsType:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 2px black, 0 0 0.3em gold;
+}
+.active {
+  color: gold;
+}
