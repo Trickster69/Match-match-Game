@@ -1,4 +1,5 @@
-# Match-Match Game (The goal of the game is to find pairs for each card.)
+# Match-Match Game.
+## The goal of the game is to find pairs for each card.
 ![Screenshot_1](https://user-images.githubusercontent.com/56273311/136696878-78fde13b-c441-4aae-b93f-cbc1d0acbc8e.png)
 ### Deploy link: https://awesome-heisenberg-825c76.netlify.app/
 #
